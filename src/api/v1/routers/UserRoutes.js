@@ -8,7 +8,7 @@ const isAlumni = require('../middlewares/isAlumni')
 const UploadFile = require('../middlewares/UploadFile'); //Upload files
 
 //------------------ Controllers Specific Stuff-------------------------X
-const { Register,Login,Profile,getUser,FetchAllPosts, updateProfile, updateProfilePic, updateExperience, addSkill, MakePost, GetPost, DeletePost, AddConnection, forgotPasswordToken, forgotPassword, FetchAllClgPosts, FetchAllClgAlumnis } = require('../controllers/UsersControllers');
+const { Register,Login,Profile,getUser,FetchAllPosts, updateProfile, updateProfilePic, updateExperience, addSkill, MakePost, GetPost, DeletePost, AddConnection, forgotPasswordToken, forgotPassword, FetchAllClgPosts, FetchAllClgAlumnis,Logout } = require('../controllers/UsersControllers');
 const isVerified = require('../middlewares/isVerified');
 
 
@@ -18,6 +18,8 @@ const isVerified = require('../middlewares/isVerified');
 Routers.post('/register',UploadFile, Register); //Register the users 
 
 Routers.post('/login', Login); //login the users 
+
+Routers.post('/logout',isAuthenticated, Logout); //login the users 
 
 Routers.get('/getUser', isAuthenticated, getUser); //get info of login users 
 

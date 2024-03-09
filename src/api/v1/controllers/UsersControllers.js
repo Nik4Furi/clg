@@ -125,6 +125,16 @@ module.exports.Login = async (req, res) => {
     } catch (error) { return res.status(500).json({ success: false, msg: error }); }
 }
 
+module.exports.Logout = async (req, res) => {
+    try {
+       
+        res.clearCookie('token');
+        
+        return res.status(200).json({success:true,msg:"You are successfully logout"})
+
+    } catch (error) { return res.status(500).json({ success: false, msg: error }); }
+}
+
 //-------- Get the profile of the users
 module.exports.getUser = async (req, res) => {
     try {
