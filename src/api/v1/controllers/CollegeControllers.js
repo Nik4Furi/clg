@@ -206,10 +206,9 @@ module.exports.GetAllClgPostList = async (req, res) => {
 module.exports.GetAllClgStudentList = async (req, res) => {
     try {
 
-        const clgStudents = await UsersModel.find({role:'student',verified:false,clg_name:req.college.name}).select('_id');
-      
+        const clgStudents = await UsersModel.find({role:'student',verified:false,clg_name:req.college.name}).select('_id')      
 
-        return res.status(200).json({ success: true, msg: "Fetch all the students",students:clgStudents })
+        return res.status(200).json({ success: true, msg: "Fetch all unverified students",students:clgStudents })
 
 
     } catch (error) { return res.status(500).json({ success: false, msg: error.message }); }

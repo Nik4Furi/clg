@@ -5,7 +5,7 @@ const isAlumni = async(req,res,next)=>{
         
         const user = req.user;
 
-        if(user.role != 'alumni')
+        if(user.role != 'alumni' || user.verified == false)
             return res.status(404).json({success:false,msg:"Only alumni can processed further"})
 
         next();

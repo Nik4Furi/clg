@@ -9,6 +9,7 @@ const UploadFile = require('../middlewares/UploadFile'); //Upload files
 
 //------------------ Controllers Specific Stuff-------------------------X
 const { Register,Login,Profile,getUser,FetchAllPosts, updateProfile, updateProfilePic, updateExperience, addSkill, MakePost, GetPost, DeletePost, AddConnection, forgotPasswordToken, forgotPassword, FetchAllClgPosts, FetchAllClgAlumnis } = require('../controllers/UsersControllers');
+const isVerified = require('../middlewares/isVerified');
 
 
 //----------------------- INitizlalzing auth apis's routes here -------------------X
@@ -42,7 +43,7 @@ Routers.post('/post', isAuthenticated,isAlumni,MakePost);
 
 Routers.get('/get-post/:_id',isAuthenticated, GetPost); 
 
-Routers.delete('/delete-post/:_id',isAuthenticated, DeletePost); 
+Routers.delete('/delete-post/:_id',isAuthenticated,isAlumni, DeletePost); 
 
 //------------ Clg post details
 
@@ -56,7 +57,7 @@ Routers.get('/fetch-clg-alumis', isAuthenticated, FetchAllClgAlumnis);
 
 //------- Connection specific routes
 
-Routers.put('/add-connection/:_id',isAuthenticated, AddConnection); 
+Routers.put('/add-connection/:_id',isAuthenticated,isVerified, AddConnection); 
 
 
 module.exports = Routers

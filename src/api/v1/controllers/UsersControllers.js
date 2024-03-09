@@ -214,6 +214,8 @@ module.exports.GetPost = async (req, res) => {
 
         const post = await PostModel.findById(_id);
 
+        if(!post) return res.status(200).json({success:false,msg:"Post not found"})
+
         return res.status(200).json({ success: true, msg: "Find your post successfully", post })
 
     } catch (error) {
@@ -301,6 +303,9 @@ module.exports.AddConnection = async (req, res) => {
     try {
 
         const { _id } = req.params
+
+        if(req.user.connections.includes(_id))
+            return res.status(404).json({success:false,msg:"You are alredy connected with them"})
 
         req.user.connections.push({ _id });
 

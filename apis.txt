@@ -12,23 +12,23 @@ Homepage:
 Profile : 
 	PUT profile(name, avtar, email, phone) ✅✅
 	PUT add_experience ✅✅
-	PUT add_skills ✅
-	GET all_job_post/:id & POST, DELETE ✅
-	POST connection  ✅
+	PUT add_skills ✅ ✅
+	GET all_job_post/:id & POST, DELETE ✅✅
+	POST connection  ✅✅
 
 
 	** GET connection_list/:id  doing something changes
 	
 College: 
  
-	GET college_detail $ update(logo, website) ✅
-	GET student_list ✅
-	GET alumni_list ✅
-	GET posted_jobs ✅
-	GET unverified_user_list ✅
-	GET unverified_alumni_list ✅
+	GET college_detail $ update(logo, website) ✅✅
+	GET student_list ✅✅
+	GET alumni_list ✅ ✅
+	GET posted_jobs ✅✅
+	GET unverified_user_list ✅✅
+	GET unverified_alumni_list ✅✅
 
-	PUT verify_user & PUT unverified_user //if not verified then  send mail and delete user ✅
+	PUT verify_user & PUT unverified_user //if not verified then  send mail and delete user ✅✅
 
 	PUT verify_alumni & PUT unverified_user //if not verified then  send mail and delete user ✅
 

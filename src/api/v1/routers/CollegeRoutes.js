@@ -1,20 +1,23 @@
 const Routers = require('express').Router();
 
 //--------------------------- Middlewares Specific Stuff ---------------------------------X
-const isAuthenticated = require('../middlewares/isAuthenticated'); //fetch user by the token
 const UploadFile = require('../middlewares/UploadFile'); //Upload files
-const CheckStatus = require('../middlewares/CheckStatus');
-
-//------------------ Controllers Specific Stuff-------------------------X
-const { Register,Login,CollegeProfile, UpdateCollegeProfile, GetAllClgStudentList, GetAllClgAlumniList, GetAllClgPostList, GetAllClgStudentVerifiedList, GetAllClgAlumniVerifiedList, VerifyUserByClg, DeleteUserByClg } = require('../controllers/CollegeControllers');
 const isCollege = require('../middlewares/isCollege');
 
 
-//----------------------- INitizlalzing auth apis's routes here -------------------X
-Routers.post('/clg-register',UploadFile, Register); //Register the College ,using POST '/api/v1/user/register'
-Routers.post('/clg-login', Login); //login the College ,using POST '/api/v1/user/login'
-Routers.get('/clg-profile', isCollege, CollegeProfile); //get info of login College ,using GET '/api/v1/user/getUser'
-Routers.put('/update-clg-profile', isCollege, UploadFile,UpdateCollegeProfile); //get info of login College ,using GET '/api/v1/user/getUser'
+//------------------ Controllers Specific Stuff-------------------------X
+const { Register,Login,CollegeProfile, UpdateCollegeProfile, GetAllClgStudentList, GetAllClgAlumniList, GetAllClgPostList, GetAllClgStudentVerifiedList, GetAllClgAlumniVerifiedList, VerifyUserByClg, DeleteUserByClg } = require('../controllers/CollegeControllers');
+
+
+//----------------------- INitizlalzing colleges apis's routes here -------------------X
+//----------- Only Clg Routes
+Routers.post('/clg-register',UploadFile, Register); 
+
+Routers.post('/clg-login', Login); 
+
+Routers.get('/clg-profile', isCollege, CollegeProfile); 
+
+Routers.put('/update-clg-profile', isCollege, UploadFile,UpdateCollegeProfile); 
 
 //--------- Getting list of related users
 Routers.get('/clg-student-verified-list', isCollege, GetAllClgStudentVerifiedList); 
