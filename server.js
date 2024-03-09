@@ -7,7 +7,11 @@ const app = express();
 
 
 const cors = require('cors') //When your app's api connect with the forntend applications
-app.use(cors())
+app.use(cors({
+    origin : "*",
+    credentials:true,
+    metthods : ["GET","POST","PUT","DELETE"]
+}))
 
 //When use your app any json object or form fill up
 app.use(express.json())
