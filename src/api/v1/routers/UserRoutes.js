@@ -50,7 +50,7 @@ Routers.delete('/delete-post/:_id',isAuthenticated,isAlumni, DeletePost);
 Routers.get('/fetch-clg-all-posts', isAuthenticated, FetchAllClgPosts); 
 
 
-Routers.get('/fetch-clg-alumis', isAuthenticated, FetchAllClgAlumnis); 
+Routers.get('/fetch-clg-alumnis', isAuthenticated, FetchAllClgAlumnis); 
 
 
 

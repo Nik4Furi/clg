@@ -17,13 +17,13 @@ const isAuthenticated = require('../middlewares/isAuthenticated');
 //----------------------- INitizlalzing admin apis's routes here -------------------X
 
 //------ College Specific Routes
-Routers.get('/fetch-verify-collge-list', isAuthenticated, isAdmin, GetVerifiedCollegeList);
+Routers.get('/fetch-verify-clg-list', isAuthenticated, isAdmin, GetVerifiedCollegeList);
 
-Routers.get('/fetch-unverify-collge-list', isAuthenticated, isAdmin, GetUnverifiedCollegeList);
+Routers.get('/fetch-unverify-clg-list', isAuthenticated, isAdmin, GetUnverifiedCollegeList);
 
-Routers.put('/verify-college/:_id', isAuthenticated, isAdmin, VerfiyUnverifiedCollege);
+Routers.put('/verify-clg/:_id', isAuthenticated, isAdmin, VerfiyUnverifiedCollege);
 
-Routers.delete('/delete-collge/:_id', isAuthenticated, isAdmin, DeleteCollege);
+Routers.delete('/delete-clg/:_id', isAuthenticated, isAdmin, DeleteCollege);
 
 
 //------ User Specific Routes
