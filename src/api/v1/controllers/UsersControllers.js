@@ -10,7 +10,7 @@ const UserModel = require('../models/UsersModel'); //User modal
 
 
 //------------ Utils Specific Stuff
-const sendMail = require('../middlewares/SendMail');
+const {sendMail} = require('../middlewares/SendMail');
 const getDataUri = require('../utils/DataUri');
 const sendToken = require('../utils/SendToken');
 const PostModel = require('../models/PostModel');
@@ -383,7 +383,7 @@ module.exports.forgotPasswordToken = async (req, res) => {
 
         await UserModel.findByIdAndUpdate(user._id, { resetToken, resetTokenExpiration })
 
-        const resetLink = `${process.env.FORNTEND_URL}/reset-password?token=${resetToken}`;
+        const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
         const emailText = `Click the following link to reset your password: ${resetLink}`;
         await sendMail(email, 'Password Reset', emailText);
 
@@ -422,6 +422,6 @@ module.exports.forgotPassword = async (req, res) => {
 
     } catch (error) {
         console.error('Error resetting password:', error);
-        res.status(500).json({ error: 'Internal server error.' });
+        res.status(500).json({ success:false,msg:error.message });
     }
 }
